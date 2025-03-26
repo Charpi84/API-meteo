@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.bgImg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 2.5fr 1.5fr;
+    grid-template-rows: 0.5fr repeat(3, 1fr) 2fr;
+    grid-template-areas:
+        "dateHeure dateHeure temperature ville"
+        "dateHeure dateHeure temperature vent"
+        "inconnu jourNuit temperature vent"
+        "parHeure parHeure parHeure parHeure"
+        "prevision prevision prevision prevision";
+}
+
+.date-heure {
+    grid-area: dateHeure;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.inconnu {
+    grid-area: inconnu;
+}
+
+.jour-nuit {
+    grid-area: jourNuit;
+}
+
+.temperature {
+    position: relative;
+    grid-area: temperature;
+    text-align: center;
+}
+
+.big {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.ville {
+    grid-area: ville;
+}
+
+.vent {
+    grid-area: vent;
+    position: relative;
+    text-align: center;
+}
+
+.direction {
+    position: absolute;
+    transform-origin: center center;
+    left: 50%;
+}
+
+.par-heure {
+    grid-area: parHeure;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.prevision {
+    grid-area: prevision;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, 1fr);
+    overflow: auto;
+    scrollbar-width: none;
+    text-align: center;
+}
+
+.semaines {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
+    border-radius: 10px;
+    background: #92c4e63b;
+}
+
+.flex {
+    display: flex;
+}
+
+.heure-par-heure {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: solid 1px black;
+    margin: 0.5rem;
+    width: 100px;
+    height: 100px;
+}
+
+@media (max-width:600px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 0.5fr 2fr 2fr 1fr 3fr;
+        grid-template-areas:
+            "dateHeure"
+            "ville"
+            "temperature"
+            "vent"
+            "parHeure"
+            "prevision"
+        ;
+    }
+
+    .heure-par-heure{
+        height: 100%;
+    }
+
+    img {
+        max-width: 100px;
+    }
+
+    img.icon-jour{
+        max-width: 50px;
+    }
+
+    .jour-nuit {
+        display: none;
+    }
+
+    .inconnu {
+        display: none;
+    }
+
+}
