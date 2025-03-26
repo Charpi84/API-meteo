@@ -24,10 +24,6 @@ function afficherMeteo(donnees) {
 
 function afficherDate(donnees) {
   let dateElement = document.querySelector('.date-heure');
-  if (!dateElement) {
-    console.error("Aucun élément avec la classe 'date' n'a été trouvé.");
-    return;
-  }
   let today = donnees.current.time;
   let date = new Date(today);
   let dateLocale = date.toLocaleDateString("fr-FR", {
@@ -60,7 +56,7 @@ function afficherTemperature(donnees) {
     bgImg = 'assets/images/cloud.jpg'
   } else if ([51, 53, 55, 56, 57, 61, 63, 65, 80, 81, 82].includes(weatherCode)) {//on met includes pour pas faire une ligne de 3km
     codeMeteo = 'assets/images/averse.png';
-    bgImg = bgImg = 'assets/images/rain.jpg'
+    bgImg = 'assets/images/rain.jpg'
   } else if ([95, 96, 99].includes(weatherCode)) {
     codeMeteo = 'assets/images/orage.png';
   } else {
